@@ -11,7 +11,7 @@ const createMentorRoute = require("./routes/create-mentor");
 const editStudentRoute = require("./routes/edit-student");
 const editMentorRoute = require("./routes/edit-mentor");
 
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(process.env.DATABASE_URL || "mongodb://localhost/db", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
