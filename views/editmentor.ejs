@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <div class="container">
+      <div class="container" id="mentorForm">
+        <h4>Edit Mentor (Assign/change students to/under the mentor)</h4>
+        <form action="/edit-mentor/<%= mentorToEdit._id %>" method="post">
+          <label for="name2" class="form-label">Name:</label>
+          <h6><%= mentorToEdit.name %></h6>
+          <label for="studentsnew" class="form-label">Select Students:</label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="studentsnew"
+            name="studentsnew"
+            multiple
+          >
+            <% students.map((student) => { %>
+            <option value="<%=student.name%>"><%= student.name %></option>
+            <% }); %>
+          </select>
+          <br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>

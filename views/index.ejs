@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <div class="container">
+      <h1>Welcome to my Student Mentor Management app</h1>
+      <hr />
+      <h2>Students</h2>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mentor assigned</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tbody>
+            <% students.map((student,i) => {%>
+            <tr>
+              <td><%=student.name%></td>
+              <td><%=student.mentor%></td>
+              <td><a class="buttons" href="/edit-student/<%= student._id %>"><i class="bi bi-pencil-square"></i></a><a class="buttons" href="/mentors"></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </tbody>
+      </table>
+      <hr />
+      <h2>Mentors</h2>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Students under the mentor</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tbody>
+            <% mentors.map((mentor,i) => {%>
+            <tr>
+              <td><%=mentor.name%></td>
+              <td><%=mentor.students.join()%></td>
+              <td><a class="buttons" href="/edit-mentor/<%= mentor._id %>"><i class="bi bi-pencil-square"></i></a></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

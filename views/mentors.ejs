@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include ('./partials/navbar.ejs') %>
+    <div class="container">
+      <h2>Mentor Profiles</h2>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Students</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.map(mentor => {%>
+          <tr>
+            <td><%=mentor.name%></td>
+            <td><%=mentor.email%></td>
+            <td><%=mentor.age%></td>
+            <td><%=mentor.students.join()%></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

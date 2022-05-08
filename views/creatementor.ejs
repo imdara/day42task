@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <div class="container">
+      <div class="container" id="mentorForm">
+        <h4>Add Mentor</h4>
+        <form action="/mentors" method="post">
+          <label for="name2" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name2"
+            name="name2"
+            required
+          />
+          <label for="email2" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email2"
+            name="email2"
+            required
+          />
+          <label for="age2" class="form-label">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            id="age2"
+            name="age2"
+            required
+          /><br />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <br />
+    </div>
+  </body>
+</html>
